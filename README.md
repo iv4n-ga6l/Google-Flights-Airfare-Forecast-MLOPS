@@ -1,12 +1,12 @@
-# 🚀 Google Flights Airfare Forecast - Real-time ML System
+# Google Flights Airfare Forecast - Real-time ML System
 
-A comprehensive **MLOps system** for predicting airline prices with AI-powered scenario planning and booking optimization. This project implements a complete real-time machine learning pipeline with feature engineering, model training, inference, and a beautiful web interface.
+A comprehensive **MLOps system** for predicting airline prices with AI-powered scenario planning and booking optimization. This project implements a complete real-time machine learning pipeline with feature engineering, model training and inference.
 
-## 🎯 Overview
+## Overview
 
 This is a complete **real-time ML system** for predicting airline prices and providing scenario planning for optimal booking strategies. The system includes feature pipelines, training pipelines, inference pipelines, and a FastAPI-based REST API with a stunning Streamlit UI.
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -45,11 +45,11 @@ This is a complete **real-time ML system** for predicting airline prices and pro
 - Interactive documentation and validation
 
 #### 5. Web Interface (`demo.py`)
-- Beautiful Streamlit web application
+- Streamlit web app
 - Interactive visualizations and charts
 - User-friendly interface for all features
 
-## ✨ Features
+## Features
 
 ### 💡 Intelligent Features
 - **Advance Booking Analysis**: Optimal timing for bookings
@@ -124,18 +124,8 @@ python start_server.py --host 0.0.0.0 --port 8000
 
 ### 4. Launch the Web Interface
 ```bash
-# Start beautiful Streamlit web app
+# Start  Streamlit web app
 streamlit run demo.py
-```
-
-### 5. Test the System
-```bash
-# Test API endpoints programmatically
-python -c "
-import requests
-response = requests.get('http://localhost:8000/health')
-print('API Status:', response.json())
-"
 ```
 
 ## 🌐 API Endpoints
@@ -227,21 +217,9 @@ DEFAULT_MODEL=xgboost
 AUTO_RELOAD=false
 ```
 
-### Config File (`config.ini`)
-```ini
-[api]
-host = 0.0.0.0
-port = 8000
-log_level = info
+### Config File 
+(`config.ini`)
 
-[model]
-default_model = xgboost
-model_dir = models
-
-[training]
-test_size = 0.2
-cv_folds = 5
-```
 
 ## 🐳 Docker Deployment
 
@@ -274,59 +252,6 @@ services:
     restart: always
 ```
 
-## 📝 Usage Examples
-
-### Python Client
-```python
-import requests
-
-# Predict single flight
-response = requests.post('http://localhost:8000/predict', json={
-    'airline': 'American Airlines',
-    'origin': 'ORD',
-    'destination': 'BOS',
-    'booking_date': '2024-01-15T10:00:00',
-    'departure_date': '2024-03-15T08:00:00',
-    'fare_class': 'Economy'
-})
-
-prediction = response.json()
-print(f"Predicted price: ${prediction['predicted_price']:.2f}")
-```
-
-### JavaScript/Node.js
-```javascript
-const response = await fetch('http://localhost:8000/predict', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        airline: 'American Airlines',
-        origin: 'ORD',
-        destination: 'BOS',
-        booking_date: '2024-01-15T10:00:00',
-        departure_date: '2024-03-15T08:00:00',
-        fare_class: 'Economy'
-    })
-});
-
-const prediction = await response.json();
-console.log(`Predicted price: $${prediction.predicted_price.toFixed(2)}`);
-```
-
-### cURL
-```bash
-curl -X POST "http://localhost:8000/predict" \
-     -H "Content-Type: application/json" \
-     -d '{
-       "airline": "American Airlines",
-       "origin": "ORD",
-       "destination": "BOS",
-       "booking_date": "2024-01-15T10:00:00",
-       "departure_date": "2024-03-15T08:00:00",
-       "fare_class": "Economy"
-     }'
-```
-
 ## 📊 Business Insights
 
 ### Key Findings
@@ -356,15 +281,6 @@ pytest tests/test_api.py -v
 pytest tests/ --cov=app --cov=pipelines
 ```
 
-### Manual Testing
-```bash
-# Health check
-curl http://localhost:8000/health
-
-# Test web interface
-streamlit run demo.py
-```
-
 ## 🔄 Model Updates
 
 ### Retrain Model
@@ -387,56 +303,6 @@ predictor.load_model_version('20241215_143022')
 "
 ```
 
-## 📚 Additional Resources
-
-- **📖 API Documentation**: http://localhost:8000/docs
-- **🌐 Web Interface**: http://localhost:8501 (Streamlit)
-- **📊 Jupyter Analysis**: `notebooks/flight_price_analysis.ipynb`
-- **🔧 Configuration**: `config.ini`
-- **📝 Logs**: `logs/` directory
-- **🤖 Models**: `models/` directory
-
-## 🚨 Troubleshooting
-
-### Common Issues
-
-#### Model Not Loading
-```bash
-# Check if model exists
-ls models/
-
-# Retrain if missing
-python train_model.py
-```
-
-#### API Not Starting
-```bash
-# Check port availability
-netstat -an | findstr 8000
-
-# Use different port
-python start_server.py --port 8001
-```
-
-#### Prediction Errors
-```bash
-# Check model status
-curl http://localhost:8000/model/info
-
-# Check API health
-curl http://localhost:8000/health
-```
-
-#### Web Interface Issues
-```bash
-# Check if API is running
-curl http://localhost:8000/health
-
-# Restart Streamlit
-streamlit run demo.py --server.port 8501
-```
-
----
 
 🎉 **Ready to predict flight prices!** 
 
