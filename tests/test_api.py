@@ -1,7 +1,6 @@
 import pytest
 import httpx
 from datetime import datetime, timedelta
-from app.models import FlightPredictionRequest, ScenarioPlanningRequest, FareClass
 
 
 class TestFlightPriceAPI:

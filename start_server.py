@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Start the FastAPI server for the Google Flights Airfare Forecast API
-"""
+
 
 import uvicorn
 import argparse
@@ -11,7 +9,6 @@ from pycache_handler.handler import py_cache_handler
 
 @py_cache_handler
 def main():
-    """Main function to start the server"""
     parser = argparse.ArgumentParser(description='Start the Flight Price Prediction API')
     parser.add_argument('--host', type=str, default='0.0.0.0',
                        help='Host to bind the server to')

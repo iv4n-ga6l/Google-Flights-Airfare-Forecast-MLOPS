@@ -4,8 +4,7 @@ from fastapi.responses import JSONResponse
 from datetime import datetime
 import logging
 import psutil
-import os
-from typing import Dict, Any
+from typing import Dict
 import time
 
 from app.models import (

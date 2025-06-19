@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
-"""
-Setup script for the Google Flights Airfare Forecast system
-"""
+
 
 import subprocess
 import sys
-import os
 from pathlib import Path
 
 

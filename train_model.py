@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Training script for the Google Flights Airfare Forecast model
-"""
+
 
 import sys
 import logging
@@ -18,7 +16,6 @@ from pycache_handler.handler import py_cache_handler
 
 @py_cache_handler
 def main():
-    """Main training function"""
     parser = argparse.ArgumentParser(description='Train flight price prediction model')
     parser.add_argument('--data-path', type=str, default='data/google_flights_airfare_data.csv',
                        help='Path to the training data CSV file')

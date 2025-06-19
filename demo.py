@@ -1,22 +1,11 @@
 #!/usr/bin/env python3
-"""
-Google Flights Airfare Forecast - Streamlit Web Application
-
-A beautiful and interactive web interface for the flight price prediction API.
-Features include single predictions, scenario planning, price trends, and booking recommendations.
-
-Run with: streamlit run demo.py
-"""
 
 import streamlit as st
 import requests
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 from datetime import datetime, timedelta, date
-import json
-import time
 import numpy as np
 
 
@@ -1036,12 +1025,6 @@ class FlightPriceApp:
         3. Enter your flight details
         4. Get AI-powered insights and recommendations!
         
-        ### 📞 Support
-        
-        For technical issues or questions:
-        - Check that the API server is running
-        - Verify your internet connection
-        - Review the error messages for troubleshooting hints
         
         ---
         
@@ -1052,7 +1035,6 @@ class FlightPriceApp:
 
 
 def main():
-    """Main entry point"""
     app = FlightPriceApp()
     app.run()
 

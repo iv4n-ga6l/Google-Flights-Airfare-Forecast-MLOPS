@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.linear_model import LinearRegression, Ridge
+from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 import xgboost as xgb
@@ -10,7 +10,7 @@ import joblib
 import logging
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, Tuple, List, Optional
+from typing import Dict, Tuple
 import json
 
 from pipelines.feature_engineering import FeatureEngineer
@@ -352,10 +352,3 @@ def train_flight_price_model(
         version = trainer.save_model()
     
     return version
-
-
-if __name__ == "__main__":
-    # Example usage
-    data_path = "google_flights_airfare_data.csv"
-    version = train_flight_price_model(data_path, model_name='xgboost', tune_hyperparameters=True)
-    print(f"Model trained and saved with version: {version}")
