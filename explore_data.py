@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load and explore the data
-df = pd.read_csv('google_flights_airfare_data.csv')
+df = pd.read_csv('data/google_flights_airfare_data.csv')
 
 print(f"Dataset shape: {df.shape}")
 print(f"Columns: {list(df.columns)}")
