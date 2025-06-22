@@ -29,7 +29,7 @@ AI-powered flight price prediction with scenario planning and booking optimizati
 ### 1. Setup & Training
 ```bash
 # Install dependencies
-python setup.py
+pip install -r requirements.txt
 
 # Train your first model
 python train_model.py
