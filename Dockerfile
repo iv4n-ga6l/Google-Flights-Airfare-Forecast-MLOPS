@@ -1,4 +1,3 @@
-# Dockerfile for Google Flights Airfare Forecast API
 FROM python:3.9-slim
 
 # Set working directory
