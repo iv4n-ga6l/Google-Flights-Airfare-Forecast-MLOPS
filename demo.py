@@ -66,7 +66,6 @@ st.markdown("""
 
 
 class FlightPriceApp:
-    """Main Streamlit application class"""
     
     def __init__(self):
         self.api_base_url = "http://localhost:8000"
