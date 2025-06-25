@@ -47,7 +47,7 @@ def main():
             return 1
         
         # Train the model
-        version = train_flight_price_model(
+        version, metrics, feature_importance = train_flight_price_model(
             data_path=str(data_path),
             model_name=args.model_name,
             tune_hyperparameters=args.tune_hyperparameters,
@@ -56,6 +56,31 @@ def main():
         
         logger.info(f"Model training completed successfully!")
         logger.info(f"Model version: {version}")
+        
+        # Display metrics
+        logger.info("=" * 50)
+        logger.info("MODEL PERFORMANCE METRICS")
+        logger.info("=" * 50)
+        for metric_name, metric_value in metrics.items():
+            if isinstance(metric_value, float):
+                logger.info(f"{metric_name}: {metric_value:.4f}")
+            else:
+                logger.info(f"{metric_name}: {metric_value}")
+        
+        # Display top feature importance
+        logger.info("=" * 50)
+        logger.info("TOP 10 FEATURE IMPORTANCE")
+        logger.info("=" * 50)
+        
+        # Sort features by importance and display top 10
+        sorted_features = sorted(feature_importance.items(), key=lambda x: x[1], reverse=True)
+        for i, (feature, importance) in enumerate(sorted_features[:10], 1):
+            logger.info(f"{i:2d}. {feature:25s}: {importance:.4f}")
+        
+        if len(sorted_features) > 10:
+            logger.info(f"... and {len(sorted_features) - 10} more features")
+        
+        logger.info("=" * 50)
         
         return 0
         

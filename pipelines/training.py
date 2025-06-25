@@ -10,7 +10,7 @@ import joblib
 import logging
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 import json
 
 from pipelines.feature_engineering import FeatureEngineer
@@ -328,8 +328,15 @@ def train_flight_price_model(
     model_name: str = 'xgboost',
     tune_hyperparameters: bool = False,
     save_model: bool = True
-) -> str:
-    """Complete training pipeline"""
+) -> Tuple[Optional[str], Dict, Dict]:
+    """Complete training pipeline
+    
+    Returns:
+        tuple: (version, metrics, feature_importance)
+            - version: Model version string (or None if not saved)
+            - metrics: Dictionary with model evaluation metrics
+            - feature_importance: Dictionary with feature importance scores
+    """
     logging.basicConfig(level=logging.INFO)
     
     trainer = ModelTrainer()
@@ -351,4 +358,4 @@ def train_flight_price_model(
     if save_model:
         version = trainer.save_model()
     
-    return version
+    return version, metrics, feature_importance
